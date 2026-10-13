@@ -9,15 +9,34 @@ def get_db_connection():
         database = 'guess_mem'
     )
 
-def get_random_img():
+# рандом выбор картинки
+def get_random_img(used_cards):
+    conn = get_db_connection()
+
     try:
-        conn = get_db_connection()
         with conn.cursor() as cursor:
-            cursor.execute("""select id, correct_answer, card_url from cards 
-            order by rand()
-            limit 1""")
+            if used_cards:
+                placeholders = ", ".join(["%s"] * len(used_cards)) # для передачи id использованных картинок
+
+                query = f"""
+                    SELECT id, correct_answer, card_url
+                    FROM cards
+                    WHERE id NOT IN ({placeholders})
+                    ORDER BY RAND()
+                    LIMIT 1
+                """
+
+                cursor.execute(query, tuple(used_cards))
+
+            else:
+                cursor.execute("""
+                    SELECT id, correct_answer, card_url
+                    FROM cards
+                    ORDER BY RAND()
+                    LIMIT 1
+                """)
+
             return cursor.fetchone()
-    except Exception as e:
-        print(f"error: {e}")
+
     finally:
         conn.close()
