@@ -8,7 +8,12 @@ from UI.AddPlayer_2 import Ui_Dialog as AddPlayer_2
 from UI.AddPlayer_3 import Ui_Dialog as AddPlayer_3
 
 from PySide6.QtWidgets import QApplication, QMainWindow, QDialog, QMessageBox
-from PySide6.QtGui import QStandardItemModel, QStandardItem
+
+# для отображения картинок
+from PySide6.QtWidgets import QFileDialog
+from PySide6.QtGui import QPixmap
+from PySide6.QtCore import Qt
+from pathlib import Path
 
 players = []
 
@@ -89,6 +94,34 @@ def open_main_wiwndow():
     window.close()
 
     main_window.show()
+    show_img()
+
+BASE_DIR = Path(__file__).resolve().parent
+
+def show_img():
+    card = dbconect.get_random_img()
+
+    if card is None:
+        print("Ошибка отображения карточки")
+        return
+
+    card_id, correct_answer, card_url = card
+
+    img_path = BASE_DIR / card_url
+
+    pixmap = QPixmap(str(img_path))
+
+    if pixmap.isNull():
+        print(f"Не удалось загрузить изображение: {img_path}")
+        return
+
+    main_window_ui.label_image.setPixmap(
+        pixmap.scaled(
+            main_window_ui.label_image.size(),
+            Qt.AspectRatioMode.KeepAspectRatio,
+            Qt.TransformationMode.SmoothTransformation
+        )
+    )
 
 # запуск диалога
 if __name__ == "__main__":
