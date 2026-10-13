@@ -35,23 +35,23 @@ class Ui_MainWindow(object):
 "color: #F0F4F8;")
         self.label_image = QLabel(self.centralwidget)
         self.label_image.setObjectName(u"label_image")
-        self.label_image.setGeometry(QRect(20, 120, 761, 441))
+        self.label_image.setGeometry(QRect(20, 120, 761, 340))
         self.label_image.setStyleSheet(u"background-color: black;")
         self.label_5 = QLabel(self.centralwidget)
         self.label_5.setObjectName(u"label_5")
-        self.label_5.setGeometry(QRect(20, 580, 231, 31))
+        self.label_5.setGeometry(QRect(20, 500, 231, 31))
         self.label_5.setStyleSheet(u"font-size: 20px;\n"
 "color: #F0F4F8;")
         self.lineEdit_answer = QLineEdit(self.centralwidget)
         self.lineEdit_answer.setObjectName(u"lineEdit_answer")
-        self.lineEdit_answer.setGeometry(QRect(20, 620, 761, 61))
+        self.lineEdit_answer.setGeometry(QRect(20, 550, 761, 61))
         self.lineEdit_answer.setStyleSheet(u"font-size: 20px;\n"
 "border-radius: 10px;\n"
 "color: #F0F4F8;\n"
 "background-color: #31315B;")
         self.pushButton_answer = QPushButton(self.centralwidget)
         self.pushButton_answer.setObjectName(u"pushButton_answer")
-        self.pushButton_answer.setGeometry(QRect(20, 700, 761, 51))
+        self.pushButton_answer.setGeometry(QRect(20, 620, 761, 51))
         self.pushButton_answer.setStyleSheet(u"font-size: 20px;\n"
 "border-radius: 10px;\n"
 "color: #F0F4F8;\n"
@@ -108,7 +108,7 @@ class Ui_MainWindow(object):
 
         self.widget2 = QWidget(self.centralwidget)
         self.widget2.setObjectName(u"widget2")
-        self.widget2.setGeometry(QRect(30, 780, 72, 58))
+        self.widget2.setGeometry(QRect(30, 700, 72, 58))
         self.verticalLayout_2 = QVBoxLayout(self.widget2)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -128,7 +128,7 @@ class Ui_MainWindow(object):
 
         self.widget3 = QWidget(self.centralwidget)
         self.widget3.setObjectName(u"widget3")
-        self.widget3.setGeometry(QRect(690, 780, 87, 64))
+        self.widget3.setGeometry(QRect(690, 700, 87, 64))
         self.verticalLayout_3 = QVBoxLayout(self.widget3)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
